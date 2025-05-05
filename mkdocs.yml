@@ -1,0 +1,79 @@
+site_name: Documentazione Angular
+site_description: V1.0.0
+site_author: Federico Perin per Cluster Financial Services Reply
+
+
+extra_css:
+  - stylesheets/extra.css
+  
+theme:
+ name: material
+ 
+
+ favicon: https://media.licdn.com/dms/image/C560BAQHXQnUkcyPnLg/company-logo_200_200/0/1527684110308?e=2147483647&v=beta&t=vnX83xsQYSqvna3oMJyS6zxoeOWQF50OV0FwT9VX_e0
+ logo: https://www.theinnovationgroup.it/wp-content/uploads/2021/07/220721_LogoReply_425x200.jpg
+
+ palette: 
+  # Light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: orange
+    accent: orange
+    toggle:
+     icon: material/weather-sunny 
+     name: Switch to dark mode
+  # Dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: deep orange
+    accent: deep orange
+    toggle:
+     icon: material/weather-night
+     name: Switch to light mode
+nav:
+  - Angular: "index.md"
+  - Setup: "setup.md"
+  - Moduli: "moduli.md"
+  - Componenti: "component.md"
+  - Pipes: "pipes.md"
+  - Services: "services.md"
+  - Routing: "routing.md"
+  - Observables: "observables.md"
+  - Direttive: "direttive.md"
+  - Template-driven Form: "template-driven.md"
+
+markdown_extensions:
+- admonition
+- codehilite 
+- attr_list
+- md_in_html
+- tables
+- pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
+- pymdownx.details
+- pymdownx.tabbed
+- footnotes
+- pymdownx.critic
+- attr_list
+- def_list
+- pymdownx.tasklist
+- pymdownx.keys
+- pymdownx.mark
+- pymdownx.smartsymbols
+
+plugins:
+    - search
+    - with-pdf:
+        author: Federico Perin - f.perin@reply.it
+        cover_title: Documentazione Angular
+        cover_logo: https://seeklogo.com/images/A/angular-icon-logo-5FC0C40EAC-seeklogo.com.png
+        cover_subtitle:  V1.0.0
+        copyright: Maggio 2025
+        toc_level: 3
+    - glightbox
+

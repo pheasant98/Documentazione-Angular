@@ -1,0 +1,43 @@
+body {
+  font-family: 'Arial', sans-serif !important;
+}
+
+/* Imposta il font per i titoli */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-width: 0;
+  border-left-width: 4px;
+}
+
+
+
+@media print {
+    /* Adjusts positioning of admonition icon */
+    .md-typeset :is(.admonition-title,summary):before {
+      top: 0.6rem;
+      left: 0.6rem;
+    }
+
+    .md-typeset .admonition,
+    .md-typeset details {
+      border-width: 0;
+      background-color: #e2e2e2;
+      border-left-width: 4px;
+    }
+    
+
+    .center {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .md-typeset code {
+      font-size: 11px;
+      border-left-width: 4px;
+    }
+
+  }
