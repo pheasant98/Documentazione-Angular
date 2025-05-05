@@ -1,0 +1,885 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="V1.0.0">
+      
+      
+        <meta name="author" content="Federico Perin per Cluster Financial Services Reply">
+      
+      
+      
+        <link rel="prev" href="../routing/">
+      
+      
+        <link rel="next" href="../direttive/">
+      
+      
+      <link rel="icon" href="https://media.licdn.com/dms/image/C560BAQHXQnUkcyPnLg/company-logo_200_200/0/1527684110308?e=2147483647&v=beta&t=vnX83xsQYSqvna3oMJyS6zxoeOWQF50OV0FwT9VX_e0">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Observables - Documentazione Angular</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#observables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Documentazione Angular" class="md-header__button md-logo" aria-label="Documentazione Angular" data-md-component="logo">
+      
+  <img src="https://www.theinnovationgroup.it/wp-content/uploads/2021/07/220721_LogoReply_425x200.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentazione Angular
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Observables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="orange" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentazione Angular" class="md-nav__button md-logo" aria-label="Documentazione Angular" data-md-component="logo">
+      
+  <img src="https://www.theinnovationgroup.it/wp-content/uploads/2021/07/220721_LogoReply_425x200.jpg" alt="logo">
+
+    </a>
+    Documentazione Angular
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Angular
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../moduli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Moduli
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Componenti
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Routing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Observables
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observables
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rxjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      RxJS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RxJS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subject-behaviorsubject-e-replaysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subject, BehaviorSubject e ReplaySubject
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipe( )
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../direttive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Direttive
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template-driven/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Template-driven Form
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rxjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      RxJS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="RxJS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subject-behaviorsubject-e-replaysubject" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subject, BehaviorSubject e ReplaySubject
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pipe( )
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="observables">Observables</h1>
+<p>Un Observable è un oggetto che rappresenta un flusso di dati nel tempo, utile per gestire eventi asincroni. Si basa sul pattern <strong>Observer</strong> e viene utilizzato per scambiare messaggi tra due entità: il <strong>publisher</strong> (emettitore) e il <strong>subscriber</strong> (consumatore). In Angular, tutto questo è implementato tramite la libreria RxJS.
+Gli Observable sono fondamentali per la gestione reattiva e asincrona dei dati, come richieste HTTP, eventi dell’utente o dati che cambiano dinamicamente nel tempo.
+Un Observable definisce una funzione che emette valori a uno o più observer. Tuttavia, questa funzione non viene eseguita finché un subscriber non si iscrive utilizzando il metodo <code>subscribe()</code>.</p>
+<p>Una volta iscritta, l'entità riceve notifiche tramite tre metodi principali:</p>
+<ul>
+<li><code>next(value)</code>: emette un nuovo valore al subscriber;</li>
+<li><code>error(err)</code>: segnala un errore e termina il flusso (nessun altro valore verrà emesso dopo);</li>
+<li><code>complete()</code>: indica che il flusso di dati è terminato con successo.
+Questi tre metodi fungono da handler degli eventi ricevuti.</li>
+</ul>
+<p>La ricezione dei dati continua fino a che:</p>
+<ul>
+<li>l’Observable completa (ovvero ha finito di emettere valori e notifica ai subscriber la fine del flusso),</li>
+<li>si verifica un errore,</li>
+<li>oppure il subscriber si disiscrive manualmente tramite <code>unsubscribe()</code>.</li>
+</ul>
+<figure>
+<p><a class="glightbox" href="../immagini/observable.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img :=":" alt="observable" class="center" src="../immagini/observable.jpg" width="400" /></a>
+  </p>
+<figcaption>Figura 7: Schema Observable</figcaption>
+</figure>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Creazione di un Observable</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Observable</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">esempio$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">((</span><span class="nx">observer</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;Primo valore&#39;</span><span class="p">);</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="nx">observer</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="s1">&#39;Secondo valore&#39;</span><span class="p">);</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="c1">// Simula un errore</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">//observer.error(&#39;Si è verificato un errore&#39;);</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="c1">// Completa il flusso</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nx">observer</span><span class="p">.</span><span class="nx">complete</span><span class="p">();</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">});</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">// Sottoscrizione all&#39;Observable</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="nx">esempio$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">({</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nx">next</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">valore</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Ricevuto:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">valore</span><span class="p">),</span><span class="w"> </span><span class="c1">// next: può essere omesso</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Errore:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">),</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="nx">complete</span><span class="o">:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Flusso completato&#39;</span><span class="p">)</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">});</span>
+</span></code></pre></div>
+</div>
+<p>Se si scommenta <code>observer.error()</code>, il flusso termina con un errore e <code>complete()</code> non viene mai chiamato.</p>
+<h2 id="rxjs">RxJS</h2>
+<p>Come già anticipato, Reactive Extensions for JavaScript (RxJS) è una libreria utilizzata da Angular per semplificare lo sviluppo di codice asincrono e basato su eventi, sfruttando la potenza degli Observable.</p>
+<p>RxJS fornisce:</p>
+<ul>
+<li>l’implementazione della classe <code>Observable</code>,</li>
+<li>una serie di operatori per trasformare, filtrare o combinare flussi di dati,</li>
+<li>utility per creare Observable a partire da altri tipi di dati, come array, promise, eventi del DOM o timer.</li>
+</ul>
+<p>Di seguito vengono illustrati alcuni operatori e creator RxJS in Angular 12: </p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Categoria</th>
+<th>Input accettato</th>
+<th>Descrizione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>of</code></td>
+<td>Creator</td>
+<td>Creation</td>
+<td>Valori statici</td>
+<td>Crea un Observable che emette uno o più valori statici.</td>
+</tr>
+<tr>
+<td><code>from</code></td>
+<td>Creator</td>
+<td>Creation</td>
+<td>Array, Promise, Iterable</td>
+<td>Converte un array, promise o iterable in un Observable.</td>
+</tr>
+<tr>
+<td><code>fromEvent</code></td>
+<td>Creator</td>
+<td>Creation</td>
+<td>Eventi DOM</td>
+<td>Crea un Observable da un evento (es. click, input).</td>
+</tr>
+<tr>
+<td><code>map</code></td>
+<td>Operatore</td>
+<td>Transformation</td>
+<td>Observable</td>
+<td>Trasforma ogni valore emesso.</td>
+</tr>
+<tr>
+<td><code>filter</code></td>
+<td>Operatore</td>
+<td>Filtering</td>
+<td>Observable</td>
+<td>Emette solo i valori che soddisfano una condizione.</td>
+</tr>
+<tr>
+<td><code>tap</code></td>
+<td>Operatore</td>
+<td>Utility</td>
+<td>Observable</td>
+<td>Esegue effetti collaterali senza modificare il flusso.</td>
+</tr>
+<tr>
+<td><code>take</code></td>
+<td>Operatore</td>
+<td>Limiting</td>
+<td>Observable</td>
+<td>Emette solo i primi N valori.</td>
+</tr>
+<tr>
+<td><code>takeUntil</code></td>
+<td>Operatore</td>
+<td>Limiting</td>
+<td>Observable, Notifier</td>
+<td>Emette fino a quando un altro Observable emette.</td>
+</tr>
+<tr>
+<td><code>switchMap</code></td>
+<td>Operatore</td>
+<td>Flattening (Async)</td>
+<td>Observable</td>
+<td>Sostituisce l'Observable precedente con uno nuovo.</td>
+</tr>
+<tr>
+<td><code>mergeMap</code></td>
+<td>Operatore</td>
+<td>Flattening (Async)</td>
+<td>Observable</td>
+<td>Emette i valori di Observables interni in parallelo.</td>
+</tr>
+<tr>
+<td><code>concatMap</code></td>
+<td>Operatore</td>
+<td>Flattening (Async)</td>
+<td>Observable</td>
+<td>Emette i valori degli Observables interni in sequenza.</td>
+</tr>
+<tr>
+<td><code>catchError</code></td>
+<td>Operatore</td>
+<td>Error Handling</td>
+<td>Observable</td>
+<td>Gestisce errori restituendo un Observable alternativo.</td>
+</tr>
+<tr>
+<td><code>combineLatest</code></td>
+<td>Operatore</td>
+<td>Combination</td>
+<td>Più Observable</td>
+<td>Combina i valori più recenti da più Observable.</td>
+</tr>
+<tr>
+<td><code>distinctUntilChanged</code></td>
+<td>Operatore</td>
+<td>Filtering</td>
+<td>Observable</td>
+<td>Emette solo se il valore è diverso dal precedente.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="subject-behaviorsubject-e-replaysubject">Subject, BehaviorSubject e ReplaySubject</h3>
+<p>In RxJS, <code>Subject</code>, <code>BehaviorSubject</code> e <code>ReplaySubject</code> sono speciali tipi di <code>Observable</code> che, oltre a emettere valori, hanno la capacità di gestire e condividere lo stato tra più subscriber. Sono utilizzati per multicast (condividere lo stesso stream di dati tra più abbonati), che differenzia questi tipi di <code>Subject</code> dai normali <code>Observable</code>.</p>
+<p>Un <code>Subject</code> è un <code>Observable</code> che può emettere valori ai suoi subscriber in modo simile a un normale Observable, ma con una differenza fondamentale: può multicast, cioè inviare lo stesso valore a più subscriber. <code>Subject</code> non memorizza valori passati, i nuovi subscriber non ricevono i valori precedenti, ma solo quelli emessi dopo essersi iscritti.</p>
+<p>Un <code>BehaviorSubject</code> è un tipo di <code>Subject</code> che mantiene l'ultimo valore emesso e lo invia a tutti i nuovi subscriber immediatamente quando si iscrivono. <code>BehaviorSubject</code> richiede un valore iniziale al momento della creazione. È utile quando si vuole che i subscriber ricevano sempre l'ultimo stato disponibile.</p>
+<p>Un <code>ReplaySubject</code> è simile a un <code>BehaviorSubject</code>, ma anziché memorizzare solo l'ultimo valore emesso, memorizza una cronologia di valori. Quando un nuovo subscriber si iscrive, riceve un numero specificato di valori passati. Questo lo rende utile quando si vuole che i subscriber ricevano una serie di valori precedenti.</p>
+<p>Riassumendo: </p>
+<table>
+<thead>
+<tr>
+<th>Tipo</th>
+<th>Memorizza l'ultimo valore</th>
+<th>Nuovi subscriber ricevono...</th>
+<th>Utilizzo tipico</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Subject</code></td>
+<td>No</td>
+<td>Solo valori emessi dopo l'iscrizione</td>
+<td>Multicasting senza stato persistente</td>
+</tr>
+<tr>
+<td><code>BehaviorSubject</code></td>
+<td>Sì</td>
+<td>L'ultimo valore emesso</td>
+<td>Gestione dello stato corrente</td>
+</tr>
+<tr>
+<td><code>ReplaySubject</code></td>
+<td>Sì (numero definito di valori)</td>
+<td>I valori recenti fino al limite specificato</td>
+<td>Riprodurre la cronologia degli eventi</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pipe">Pipe( )</h2>
+<p>Il metodo <code>pipe()</code> consente di comporre una catena di operatori sui oggetti <code>Observable</code>. Ogni operatore all’interno della pipe riceve i dati emessi dall’Observable precedente, li elabora, e li passa all’operatore successivo.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="language-ts highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;rxjs&#39;</span><span class="p">;</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">filter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;rxjs/operators&#39;</span><span class="p">;</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">obs$</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">of</span><span class="p">(</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">5</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nx">filter</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mf">2</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">),</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nx">map</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">10</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="p">);</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nx">obs$</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">);</span><span class="w"> </span><span class="c1">// Output: 20, 40</span>
+</span></code></pre></div>
+</div>
+<p>Nell'esempio precedente, dopo aver creato l'Observable, il metodo <code>filter()</code> all'interno di <code>pipe()</code> scarta i numeri dispari. Successivamente, il metodo <code>map()</code> moltiplica per 10 i numeri rimanenti.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
